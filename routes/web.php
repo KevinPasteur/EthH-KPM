@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/admin-area', function () {
+    echo "Tu es un Admin";
+})->middleware('role:Administrateur');
+
+Route::group(['middleware' => ['role:Administrateur']], function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::post('/admin/change-role/{user}', [AdminController::class, 'changeRole'])->name('admin.changeRole');
+});
+
+require __DIR__ . '/auth.php';
