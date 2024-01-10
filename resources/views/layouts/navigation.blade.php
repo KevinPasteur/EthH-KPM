@@ -18,6 +18,9 @@
                             {{ __('Admin') }}
                         </x-nav-link>
                     @endif
+                    <x-nav-link :href="route('messages.index')" :active="request()->routeIs('messages.index')">
+                        {{ __('Chat') }}
+                    </x-nav-link>
 
                 </div>
             </div>
@@ -93,6 +96,9 @@
                     {{ __('Admin') }}
                 </x-responsive-nav-link>
             @endif
+            <x-responsive-nav-link :href="route('messages.index')" :active="request()->routeIs('messages.index')">
+                {{ __('Chat') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

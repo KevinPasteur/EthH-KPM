@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\MessageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +31,16 @@ Route::middleware('auth')->group(function () {
 Route::group(['middleware' => ['role:Administrateur']], function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::post('/admin/change-role/{user}', [AdminController::class, 'changeRole'])->name('admin.changeRole');
+    Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
 });
+
+Route::middleware(['auth', 'role:Administrateur,Éditeur,Lecteur'])->group(function () {
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+});
+
+    Route::middleware(['auth', 'role:Administrateur,Éditeur'])->group(function () {
+        Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+    });
 
 
 Route::get('/unauthorized', function () {
