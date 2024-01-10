@@ -9,15 +9,14 @@ class CheckRole
 {
     public function handle($request, Closure $next, ...$roles)
     {
-        if (!Auth::check()) return redirect('login');
-
-        foreach ($roles as $role) {
-            // Vérifie si l'utilisateur a l'un des rôles autorisés
-            if (Auth::user()->role->name == $role) {
-                return $next($request);
-            }
+        if (Auth::check() && in_array(Auth::user()->role->name, $roles)) {
+            return $next($request);
         }
 
-        return redirect('/'); // Rediriger si aucun des rôles ne correspond
+        if (Auth::user()->role->name == "Désactivé") {
+            return redirect('unauthorized')->with('error', 'Vous compte est désactivé, vous ne pouvez pas pour l\'instant utiliser cette partie du site.'); // Rediriger si aucun des rôles ne correspond
+        }
+
+        return redirect('unauthorized')->with('error', 'Vous n\'avez pas les autorisations nécessaires pour poursuivre.'); // Rediriger si aucun des rôles ne correspond
     }
 }
