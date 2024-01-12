@@ -11,7 +11,7 @@
                         Bienvenue sur le projet du cours Ethical Hacking !
                     </h1>
                     <p class="text-l mt-4">
-                        Veuillez d'abord vous connecter ou crÃ©er un compte
+                        Veuillez d'abord vous connecter ou créer un compte
                     </p>
                 </div>
             </div>
