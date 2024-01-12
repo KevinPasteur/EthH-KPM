@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -23,10 +24,20 @@ class AdminController extends Controller
             return redirect()->route('admin.index')->with('error', 'Vous ne pouvez pas changer votre propre rôle.');
         }
 
+        // Vérifiez le mot de passe
+        if (!Hash::check($request->password, auth()->user()->password)) {
+            return redirect()->route('admin.index')->with('error', 'Mot de passe incorrect.');
+        }
+
         $user->role_id = $request->role_id;
         $user->save();
 
 
-        return back()->with('success', $user->email . " a maintenant le rôle " . $user->role->name . ".");
+        return redirect()->route('admin.index')->with('success', $user->email . " a maintenant le rôle " . $user->role->name . ".");
+    }
+
+    public function showConfirmRoleChange(Request $request, User $user)
+    {
+        return view('admin.confirm-role-change', ['user' => $user, 'role_id' => $request->role_id]);
     }
 }

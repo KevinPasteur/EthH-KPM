@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::group(['middleware' => ['role:Administrateur']], function () {
         Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
         Route::post('/admin/change-role/{user}', [AdminController::class, 'changeRole'])->name('admin.changeRole');
+        Route::post('/admin/confirm-role-change/{user}', [AdminController::class, 'showConfirmRoleChange'])->name('admin.confirmRoleChange');
         Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
     });
 
