@@ -38,9 +38,9 @@ Route::middleware(['auth', 'role:Administrateur,Éditeur,Lecteur'])->group(funct
     Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
 });
 
-    Route::middleware(['auth', 'role:Administrateur,Éditeur'])->group(function () {
-        Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
-    });
+Route::middleware(['auth', 'role:Administrateur,Éditeur'])->group(function () {
+    Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+});
 
 
 Route::get('/unauthorized', function () {
