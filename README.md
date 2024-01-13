@@ -1,66 +1,111 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<a name="retour-en-haut"></a>
+<h1 align="center">
+  EthH KPM
+  <br>
+</h1>
+
+<h4 align="center">Application web sécurisée pour le cours d'Ethical Hacking
+    <br>
+</h4>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="#à-propos-du-projet">À propos du projet</a> •
+  <a href="#organisation">Organisation</a> •
+  <a href="#librairies">Librairies</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#problèmes">Problèmes</a> •
+  <a href="#sécurités">Sécurités</a> •
+  <a href="#identification-des-faiblesses">Identification des faiblesses</a> •
+  <a href="#fonctionnalités-manquantes">Fonctionnalités manquantes</a> •
+  <a href="#contact">Contact</a>
 </p>
 
-## About Laravel
+## À propos du projet
+Dans le cadre du projet du cours à option Ethical Hacking de la HEIG-VD en Ingénierie des Médias, notre équipe réalise une application web sécurisée avec 3 fonctionnalités définies. 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Système d'authentification
+- Chat
+- Page administrateur
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+L'objectif, démontrer nos compétences en développement sécurisé.
+<br>
+### Développé avec
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+[![Laravel][Laravel.com]][Laravel-url] [![TailwindCSS][TailwindCSS.com]][TailwindCSS-url] [![MongoDB][MongoDB.com]][MongoDB-url] [![Vite][Vite.com]][Vite-url]
 
-## Learning Laravel
+<br>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Organisation
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- <b> Système d'authentification </b> : Kévin - Patrick
+- <b> Chat </b> : Patrick - Miguel
+- <b> Page d'administrateur </b> : Kévin - Miguel
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<br>
 
-## Laravel Sponsors
+## Librairies
+- <b> Laravel (v10) </b> : Framework PHP
+    - <b> PHP (v8.1) </b>
+    - <b> Tailwind CSS (v3.1) </b> : Framework CSS
+    - <b> Vite (v5.0) </b> : Outil front-end JavaScript
+    - <b> Laravel Breeze (v1.27) </b> : Package qui implémente les fonctionnalités d'authentication de Laravel
+    - <b> Laravel-MongoDB (v4.1) </b> : Package MongoDB basé sur Eloquent model et Query builder pour Laravel
+ 
+- <b> MongoDB (MongoDB v6.0.3 Community) </b> : Base de données NoSQL
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+<br>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Installation
+Pour cloner cette application en local, vous aurez besoin de [Git](https://git-scm.com/downloads) et d'un serveur [MongoDB](https://www.mongodb.com/) installés sur votre ordinateur.
 
-## Contributing
+<p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Problèmes
+- <b> Intégration avec MongoDB </b> :
+- <b> Intégration du Recaptcha de Google </b> :
 
-## Code of Conduct
+<p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Sécurités
+### Intégrées
+- <b> Protection CSRF </b> : Laravel fournit une protection CSRF pour toutes les requêtes POST, PUT, PATCH, et DELETE via un token CSRF
+- <b> Protection XSS </b> : Les balises Blade ( {{ }} ) échappent automatiquement le contenu, ce qui aide à prévenir les attaques XSS
+- <b> Protection injections SQL </b> : Laravel utilise l'ORM Eloquent qui prépare et exécute les requêtes SQL de manière sécurisée, évitant les injections SQL
+- <b> Hashage des mots de Passe </b> : Utilisation de l'algorithme Bcrypt pour le hashage des mots de passe
+- <b> Authentification </b> : Mise en place d'un système d'authentification via Laravel Breeze
+- <b> Validations des entrées </b> : Validation stricte des données côté serveur via les Request Forms de Laravel
+- <b> Rate Limiting </b> : Le middleware de limitation de taux intégré aide à limiter le nombre de requêtes par utilisateur
 
-## Security Vulnerabilities
+### Développées
+- <b> Saisie du mot de passe lors des opérations sensibles </b> : Demande à l'administrateur de saisir à nouveau son mot de passe avant d'exécuter des opérations critiques (comme les changements de rôle)
+- <b> Captcha à l'enregistrement </b> : Utilisation du Recaptcha v2 de Google lors de l'inscription d'un utilisateur
+- <b> RBAC </b> : Système de contrôle d'accès basé sur les rôles afin de gérer l'accès à différentes parties de l'application
+- <b> Journalisation </b> : Enregistre les différentes activités des utilisateur, en particulier sur les actions critiques
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
 
-## License
+## Identification des faiblesses
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
+
+## Fonctionnalités manquantes
+- La fonctionnalité bonus "Gestionnaire de fichiers partagé" n'a pas été implémentée
+
+<p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
+
+## Contact
+La team KPM - HEIG-VD - Ingénierie des Médias
+
+<p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[MongoDB-url]: https://www.mongodb.com/
+[MongoDB.com]: https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white
+[Laravel-url]: https://laravel.com/
+[Laravel.com]: https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white
+[TailwindCSS-url]: https://tailwindcss.com/
+[TailwindCSS.com]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
+[Vite-url]: https://vitejs.dev/
+[Vite.com]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
