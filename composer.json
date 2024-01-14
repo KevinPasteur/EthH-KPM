@@ -10,9 +10,11 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "mongodb/laravel-mongodb": "^4.1"
+        "mongodb/laravel-mongodb": "^4.1",
+        "spatie/laravel-csp": "^2.8"
     },
     "require-dev": {
+        "enlightn/enlightn": "^2.7",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.27",
         "laravel/pint": "^1.0",
