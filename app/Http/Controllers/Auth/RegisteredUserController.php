@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class RegisteredUserController extends Controller
 {
@@ -53,6 +54,27 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        $anoEmailAuth = $this->anonymizeEmail(Auth::user()->email);
+
+        Log::info('Inscription de l\'utilisateur : ' . $anoEmailAuth);
+
         return redirect(RouteServiceProvider::HOME);
+    }
+
+    function anonymizeEmail($email)
+    {
+        $parts = explode("@", $email);
+        if (count($parts) == 2) {
+            $name = $parts[0];
+            $domain = $parts[1];
+
+            // Masquer une partie du nom
+            $nameLength = strlen($name);
+            $visibleNameLength = max(1, round($nameLength / 2)); // Garde visible la moitié du nom
+            $hiddenName = str_repeat('*', $nameLength - $visibleNameLength);
+
+            return substr($name, 0, $visibleNameLength) . $hiddenName . '@' . $domain;
+        }
+        return $email; // Retourne l'email original si le format n'est pas valide
     }
 }
