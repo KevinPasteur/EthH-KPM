@@ -39,12 +39,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
     });
 
-
     Route::get('/unauthorized', function () {
         return view('unauthorized');
     })->name('unauthorized');
 });
-
-
 
 require __DIR__ . '/auth.php';
