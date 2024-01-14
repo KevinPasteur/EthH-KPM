@@ -50,9 +50,10 @@ L'objectif, démontrer nos compétences en développement sécurisé.
     - <b> Vite (v5.0) </b> : Outil front-end JavaScript
     - <b> Laravel Breeze (v1.27) </b> : Package qui implémente les fonctionnalités d'authentication de Laravel
     - <b> Laravel-MongoDB (v4.1) </b> : Package MongoDB basé sur Eloquent model et Query builder pour Laravel
+    - <b> Enlightn (v2.7) </b> : Package permettant de tester notre application fournissant des informations sur la performance, sécurité, ...
+    - <b> Laravel-CP (v2.8) </b> : Package permettant de gérer les CSP
  
 - <b> MongoDB (MongoDB v6.0.3 Community) </b> : Base de données NoSQL
-
 
 <br>
 
@@ -62,8 +63,7 @@ Pour cloner cette application en local, vous aurez besoin de [Git](https://git-s
 <p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
 
 ## Problèmes
-- <b> Intégration avec MongoDB </b> :
-- <b> Intégration du Recaptcha de Google </b> :
+- <b> Intégration avec MongoDB </b> : Laravel ayant mis en place tout récemment [l'intégration de MongoDB](https://laravel-news.com/mongodb-laravel-integration) sans passer par un package, il manque encore de la documentation pour certaines parties qui étaient disponibles dans l'ancien package.
 
 <p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
 
@@ -81,12 +81,18 @@ Pour cloner cette application en local, vous aurez besoin de [Git](https://git-s
 - <b> Saisie du mot de passe lors des opérations sensibles </b> : Demande à l'administrateur de saisir à nouveau son mot de passe avant d'exécuter des opérations critiques (comme les changements de rôle)
 - <b> Captcha à l'enregistrement </b> : Utilisation du Recaptcha v2 de Google lors de l'inscription d'un utilisateur
 - <b> RBAC </b> : Système de contrôle d'accès basé sur les rôles afin de gérer l'accès à différentes parties de l'application
-- <b> Journalisation </b> : Enregistre les différentes activités des utilisateur, en particulier sur les actions critiques
+- <b> Journalisation </b> : Enregistre les différentes activités des utilisateur, en particulier sur les actions critiques (Enregistrement, Connexion, Changement de rôle)
+- <b> Content-Security-Policy </b> : Nous avons intégré le package [Laravel CSP](https://github.com/spatie/laravel-csp) pour nous permettre de gérer le contrôle de sources des ressources pour prévenir les attaques XSS
 
 <p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
 
 ## Identification des faiblesses
+Afin d'identifier les potentiels faiblesses de notre application, nous avons utilisé plusieurs moyens :
 
+- Les recommandations du cours
+- La [Laravel Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Laravel_Cheat_Sheet.html) de l'OWASP sur les sécurités pour une application Laravel
+- Le package [Enlightn](https://www.laravel-enlightn.com/) qui permet de scanner notre code Laravel et nous fournis différentes informations sur les performances, la sécurité et d'autres recommandations
+  
 <p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
 
 ## Fonctionnalités manquantes
