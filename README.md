@@ -61,7 +61,7 @@ L'objectif, démontrer nos compétences en développement sécurisé.
 
 ### Pré-requis
 
-Pour cloner cette application, vous aurez besoin de [PHP](https://www.php.net/downloads.php), [Git](https://git-scm.com/downloads), [Composer](https://getcomposer.org/download/), [Node.js](https://nodejs.org/en/download/) (qui inclue [npm](http://npmjs.com)) et d'un serveur [MongoDB](https://www.mongodb.com/try/download/community) (Privilégié la version Community 7.0.5) installés sur votre ordinateur.
+Pour cloner cette application, vous aurez besoin de [PHP](https://www.php.net/downloads.php), [Git](https://git-scm.com/downloads), [Composer](https://getcomposer.org/download/), [Node.js](https://nodejs.org/en/download/) (qui inclue [npm](http://npmjs.com)) et d'un serveur [MongoDB](https://www.mongodb.com/try/download/community) (Privilégiez la version Community 7.0.5) installés sur votre ordinateur.
 
 #### Installation de l'extension MongoDB pour PHP
 Laravel ayant mis en place tout récemment [l'intégration de MongoDB](https://laravel-news.com/mongodb-laravel-integration), il faut pour l'activer ajouter l'extension PHP pour MongoDB et l'activer dans le php.ini.
