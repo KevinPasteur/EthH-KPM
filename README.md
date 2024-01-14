@@ -45,7 +45,7 @@ L'objectif, démontrer nos compétences en développement sécurisé.
 
 ## Librairies
 - <b> Laravel (v10) </b> : Framework PHP
-    - <b> PHP (v8.1) </b>
+    - <b> PHP (v8.2) - Thread Safe - x64  </b>
     - <b> Tailwind CSS (v3.1) </b> : Framework CSS
     - <b> Vite (v5.0) </b> : Outil front-end JavaScript
     - <b> Laravel Breeze (v1.27) </b> : Package qui implémente les fonctionnalités d'authentication de Laravel
@@ -53,12 +53,147 @@ L'objectif, démontrer nos compétences en développement sécurisé.
     - <b> Enlightn (v2.7) </b> : Package permettant de tester notre application fournissant des informations sur la performance, sécurité, ...
     - <b> Laravel-CP (v2.8) </b> : Package permettant de gérer les CSP
  
-- <b> MongoDB (MongoDB v6.0.3 Community) </b> : Base de données NoSQL
+- <b> MongoDB (MongoDB 7.0.5 Community) </b> : Base de données NoSQL
 
 <br>
 
 ## Installation
-Pour cloner cette application en local, vous aurez besoin de [Git](https://git-scm.com/downloads) et d'un serveur [MongoDB](https://www.mongodb.com/) installés sur votre ordinateur.
+
+### Pré-requis
+
+Pour cloner cette application, vous aurez besoin de [PHP](https://www.php.net/downloads.php), [Git](https://git-scm.com/downloads), [Composer](https://getcomposer.org/download/), [Node.js](https://nodejs.org/en/download/) (qui vient avec [npm](http://npmjs.com)) et d'un serveur [MongoDB](https://www.mongodb.com/try/download/community) (Privilégié la version Community 7.0.5) installés sur votre ordinateur.
+
+#### Installation de l'extension MongoDB pour PHP
+Laravel ayant mis en place tout récemment [l'intégration de MongoDB](https://laravel-news.com/mongodb-laravel-integration), il faut pour l'activer ajouter l'extension PHP pour MongoDB et l'activer dans le php.ini.
+
+Nous avons détaillé plus bas la procédure d'installation de l'extension pour Windows et Mac. Si un problème devait survenir, voici le [lien de la procédure](https://www.php.net/manual/en/mongodb.installation.windows.php).
+
+<i> Cette partie peut parfois poser problème, n'hésitez pas à nous contacter pour plus de détails </i>
+
+<b> Windows </b>
+
+Rendez-vous sur le github [mongo-php-driver](https://github.com/mongodb/mongo-php-driver/releases/).
+
+Dans la liste qui vous est proposé, il vous faudra choisir la bonne version du driver (.dll) pour ce faire, vous devrez connaître votre version de PHP et le type de Thread (Safe or not).
+
+<i> Pour le développement de l'application, nous avons utilisé la version de PHP 8.2 (x64) en Thread Safe </i>
+
+```bash
+# Connaître sa version de PHP
+$ php --version
+
+# Connaître son type de Thread
+$ php -i|findstr "Thread"
+
+```
+
+Après avoir téléchargé la bonne version de la dll, il vous faudra la déposer (uniquement la dll) dans le dossier "ext" de votre installation de PHP.
+
+```bash
+# Trouver son dossier de configuration
+$ php --ini
+```
+
+Ensuite, ouvrez votre fichier php.ini qui se trouve à la racine du dossier. Recherchez la liste des extensions et ajoutez-y cette ligne.
+
+```bash
+# ...Le reste de vos extensions...
+extension=php_mongodb.dll
+```
+
+Sauvegardez et vous avez à présent fini l'installation de l'extension.
+
+<b> Mac </b>
+
+Rendez-vous sur le github [mongo-php-driver](https://github.com/mongodb/mongo-php-driver/releases/).
+
+Exécutez la commande suivante qui vous installera l'extension.
+
+```bash
+$ pecl install mongodb-1.17.2
+```
+
+#### Éviter l'erreur de certificat pour Google Recaptcha
+Comme nous travaillons actuellement dans un environnement de développement local, cURL n'est pas capable de vérifier le certificat SSL du serveur de Google Recaptcha produisant ainsi une erreur.
+
+Pour résoudre ce problème, il vous faudra installer le bundle de certificats CA.
+
+Depuis ce lien [curl.haxx.se/ca/cacert.pem](http://curl.haxx.se/ca/cacert.pem), téléchargez le cacert.pem et placez le dans votre installation de PHP. 
+
+Ouvrez votre php.ini et trouvez cette ligne 
+```bash
+;curl.cainfo
+```
+
+Remplacez la par
+```bash
+curl.cainfo = "<Lien vers votre emplacement du cacert.pem>"
+```
+
+<i> Faites attention à bien enlever le point-virgule du début de ligne (;) </i>
+
+Sauvegardez et vous pourrez alors utiliser la partie Google Recaptcha à l'inscription.
+
+### Installer l'application
+Ensuite, exécutez ces lignes de commandes.
+
+```bash
+# Cloner le repo
+$ git clone https://github.com/KevinPasteur/EthH-KPM
+
+# Aller dans le répertoire
+$ cd EthH-KPM
+
+# Installation des dépendances
+$ composer i
+$ npm i
+```
+
+### Configuration .env
+Renommez le .env.example en .env (À la racine du projet). 
+
+Générez ensuite une nouvelle clé d'application
+
+```bash
+# Génération d'une nouvelle clé
+$ php artisan key:generate
+```
+
+Ajoutez les clés pour Google Recaptcha (fournies par email) dans le .env (les variables se trouvent à la fin du fichier).
+
+```bash
+GOOGLE_RECAPTCHA_KEY=<Insérer Key>
+GOOGLE_RECAPTCHA_SECRET=<Insérer Secret>
+```
+### Exécuter les migrations
+Pour créer les tables et peupler la base de données, exécutez la commande suivante. 
+
+```bash
+# Exécute les migrations et les seeders
+$ php artisan migrate:refresh --seed
+```
+### Lancer l'application
+Pour lancer l'application, vous devrez exécutez les commandes suivante en étant dans le répertoire du projet.
+
+```bash
+# Crée le bundle Vite
+$ npm run build
+
+# Lancer le serveur
+$ php artisan serve
+```
+
+### Identifiants de test
+Pour pouvoir tester l'application dans les meilleures conditions, nous vous avons au préalable créé différents comptes pour tester chaque rôle.
+
+- Email : <nom du rôle en minuscule, sans accent>@<nom du rôle en minuscule, sans accent>.com
+- Mot de passe : Pa$$w0rdEth123
+
+```bash
+# Exemple
+Email : administrateur@administrateur.com
+Mot de passe : Pa$$w0rdEth123
+```
 
 <p align="right">(<a href="#retour-en-haut">retour en haut</a>)</p>
 
