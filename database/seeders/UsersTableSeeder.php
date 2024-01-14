@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
         // Create a user for each role
         foreach ($roles as $role) {
 
-// uncapitalize the role name
+            // uncapitalize the role name
             $role['name'] = strtolower($role['name']);
 
             // change letters with accent to letters without accent
@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
 
             User::create([
                 'email' => $role['name'] . '@' . $role['name'] . '.com',
-                'password' => Hash::make('12345678'),
+                'password' => Hash::make('Pa$$w0rdEth123'),
                 'role_id' => $role['_id'],
             ]);
         }
